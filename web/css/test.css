@@ -3,6 +3,12 @@
 	width: 100%;
 }
 
+.boxSmall {
+	height: 20px;
+	width: 40px;
+	border: 1px solid white;
+}
+
 .red {
 	background-color: red;
 }
