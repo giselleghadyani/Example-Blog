@@ -1,5 +1,11 @@
-<link rel="stylesheet" href="test.css">
+<link rel="stylesheet" href="/css/test.css">
+<link rel="stylesheet" href="/css/themes/indigo-theme.css">
+<link rel="stylesheet" href="/css/themes/green-theme.css">
 
+<div layout="horizontal" layout-align="end start">
+	<div class="boxSmall red"></div>
+	<div class="boxSmall red"></div>
+</div>
 <div layout="vertical" layout-sm="horizontal" layout-padding>
 	<div flex layout-order-sm="3">
 		<div class="box red"></div>
@@ -29,4 +35,11 @@
 	<div flex>
 		<div class="box purple"></div>
 	</div>
+</div>
+
+<!-- Themes -->
+<div>
+	<md-toolbar md-theme="indigo"></md-toolbar>
+	<md-content md-theme="green"></md-content>
+	<md-button>Hello</md-button>
 </div>
