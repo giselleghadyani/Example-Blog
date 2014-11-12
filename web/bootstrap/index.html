@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bootstrap</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<!-- Here will be a picture above the navigation bar -->
+	<div class="container">
+		<header class="row">
+			<div class="col-xs-12">
+				<div class="jumbotron">
+					<a href="/"><img class="img-responsive" src="http://placehold.it/800x300"></a>
+				</div>
+				<!-- Navigation bar -->
+			</div>
+		</header>
+	</div>
+	<nav class="navbar" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="/" class="navigation-link">
+							Home
+						</a>
+					</li>
+					<li>
+						<a href="/about" class="navigation-link navigation-link--active">
+							About
+						</a>
+					</li>
+					<li class="dropdown">
+						<a href="#none" class="navigation-link dropdown-toggle" data-toggle="dropdown">
+							Tutorials
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#none">Lesson 1</a></li>
+							<li><a href="#none">Lesson 2</a></li>
+							<li><a href="#none">Lesson 3</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#none" class="navigation-link">
+							Contact
+						</a>
+					</li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<!-- Body Text -->
+	<div class="container">
+		<main class="row">
+			<div class="col-xs-8">
+				<article class="post">
+					<h1 class="post-heading">About</h1>
+					<p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum quos adipisci suscipit ut hic necessitatibus eveniet natus rem perferendis voluptatibus.</p>
+					<p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum quos adipisci suscipit ut hic necessitatibus eveniet natus rem perferendis voluptatibus.</p>
+					<p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum quos adipisci suscipit ut hic necessitatibus eveniet natus rem perferendis voluptatibus.</p>
+				</article>
+			</div>
+			<!-- Side bar(s) -->
+			<div class="col-xs-4">
+				<h2 class="sidebar-heading">HEADING</h2>
+				<p class="sidebar-description">List of links</p>
+			</div>
+		</main>
+	</div>
+	<div class="container">
+		<footer class="row">
+			<div class="col-xs-12">
+				<div class="site-footer">
+					<p>Footer text</p>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>

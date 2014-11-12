@@ -4,33 +4,34 @@
 <!-- My Ever Evolving Blog -->
 
 <head>
-	<link rel="stylesheet" href="style.css">
-	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet'>
-	<title>
-		Blog
-	</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Blog</title>
+	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet'>
+	<link rel="stylesheet" href="flexboxgrid.css">
+	<base href="/">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.11/angular-ui-router.min.js"></script>
+	<script src="app.js"></script>
 </head>
-<body>
+<body data-ng-app="blogApp">
 	<!-- Here will be a picture above the navigation bar -->
 	<header class="row">
-		<div class="col-4of4">
+		<div class="col-xs">
 			<div>
-				<img class="img-responsive" src="http://placehold.it/800x300">
+				<a href="/"><img class="img-responsive" src="http://placehold.it/800x300"></a>
 			</div>
 			<!-- Navigation bar -->
 		</div>
 	</header>
 	<div class="row">
-		<div class="col-4of4">
+		<div class="col-xs">
 			<nav class="navigation">
-				<a href="#none" class="navigation-link">
+				<a data-ui-sref-active="active" data-ui-sref="blog" class="navigation-link">
 					Home
 				</a>
-				<a href="#none" class="navigation-link">
+				<a data-ui-sref-active="active" data-ui-sref="about" class="navigation-link">
 					About
-				</a>
-				<a href="#none" class="navigation-link">
-					Blog
 				</a>
 				<a href="#none" class="navigation-link">
 					Tutorials
@@ -43,22 +44,17 @@
 	</div>
 	<!-- Body Text -->
 	<main class="row">
-		<div class="col-3of4">
-			<article class="post">
-				<h1 class="post-heading">Heading</h1>
-				<p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum quos adipisci suscipit ut hic necessitatibus eveniet natus rem perferendis voluptatibus.</p>
-				<p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum quos adipisci suscipit ut hic necessitatibus eveniet natus rem perferendis voluptatibus.</p>
-				<p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum quos adipisci suscipit ut hic necessitatibus eveniet natus rem perferendis voluptatibus.</p>
-			</article>
+		<div class="col-xs-12 col-sm-8">
+			<div ui-view=""></div>
 		</div>
 		<!-- Side bar(s) -->
-		<div class="col-1of4">
+		<div class="col-xs-12 col-sm-4">
 			<h2 class="sidebar-heading">HEADING</h2>
 			<p class="sidebar-description">List of links</p>
 		</div>
 	</main>
 	<footer class="row">
-		<div class="col-4of4">
+		<div class="col-xs">
 			<div class="site-footer">
 				<p>Footer text</p>
 			</div>

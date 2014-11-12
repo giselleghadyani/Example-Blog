@@ -41,20 +41,10 @@ a {
 	text-transform: uppercase;
 }
 
-.navigation-link:hover, .navigation-link:active {
+.navigation-link:hover,
+.navigation-link--active {
 	background-color: #ffe4e1;
 	color: #fdf5e6;
-}
-
-/* Blog posts */
-
-.post {
-	border: 2px dashed #ffb6c1;
-	border-radius: 5px;
-	float: left;
-	height: 100%;
-	padding: 0px 20px 20px;
-	width: 100%;
 }
 
 .row {
@@ -95,6 +85,17 @@ a {
 	width: 100%;
 }
 
+/* Blog posts */
+
+.post {
+	border: 2px dashed #ffb6c1;
+	border-radius: 5px;
+	float: left;
+	height: 100%;
+	padding: 0px 20px 20px;
+	width: 100%;
+}
+
 .post-heading {
 	color: #f08080;
 	font-family: "Big John", Verdana, sans-serif;
@@ -107,6 +108,8 @@ a {
 	font-size: 14px;
 }
 
+/* Sidebar Information*/
+
 .sidebar-heading {
 	color: #cd853f;
 	font-family: "Big John", Verdana, sans-serif;
@@ -116,6 +119,8 @@ a {
 .sidebar-description {
 /*change this title later after inserting links and possibly nav bar*/
 }
+
+/* Footer Information */
 
 .site-footer {
 	background-color: mistyrose;
