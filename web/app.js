@@ -21,6 +21,9 @@ angular.module('blogApp', ['ui.router'])
 	}).state('contact', {
 		url: '/contact',
 		templateUrl: 'contact.html',
+	}).state('test', {
+		url: '/test',
+		templateUrl: 'test.html',
 	});
 })
 
@@ -46,6 +49,10 @@ angular.module('blogApp', ['ui.router'])
 			name: 'Contact',
 			state: 'contact'
 		},
+		{
+			name: 'Test',
+			state: 'test'
+		}
 	];
 	this.activeClass = 'navigation-link--active';
 	this.class = 'navigation-link';
