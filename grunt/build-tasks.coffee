@@ -7,5 +7,6 @@ module.exports = (grunt) ->
 
 	# Default
 	@registerTask 'default', [
+		'configureRewriteRules'
 		'connect:main'
 	]
