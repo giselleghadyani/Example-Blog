@@ -30,18 +30,10 @@
 	<div class="row">
 		<div class="col-xs">
 			<nav class="navigation" data-ng-controller="navs">
-				<a data-ui-sref-active="navigation-link--active" data-ui-sref="blog" class="navigation-link">
-					Home
+				<a data-ui-sref-active="{{siteNav.activeClass}}" data-ui-sref="{{link.state}}" class="{{siteNav.class}}" data-ng-repeat="link in siteNav.pages">
+					{{link.name}}
 				</a>
-				<a data-ui-sref-active="navigation-link--active" data-ui-sref="about" class="navigation-link">
-					About
-				</a>
-				<a href="#none" class="navigation-link">
-					Tutorials
-				</a>
-				<a href="#none" class="navigation-link">
-					Contact
-				</a>
+				
 			</nav>
 		</div>
 	</div>

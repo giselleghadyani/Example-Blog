@@ -15,9 +15,38 @@ angular.module('blogApp', ['ui.router'])
 	}).state('about', {
 		url: '/about',
 		templateUrl: 'about.html',
+	}).state('tutorials', {
+		url: '/tutorials',
+		templateUrl: 'tutorials.html',
+	}).state('contact', {
+		url: '/contact',
+		templateUrl: 'contact.html',
 	});
 })
 
-.controller('navs', function(){
-	
+.controller('navs', function($scope, siteNav) {
+	$scope.siteNav = siteNav;
+})
+
+.service('siteNav', function() {
+	this.pages = [
+		{
+			name:'Home',
+			state: 'blog'
+		},
+		{
+			name: 'About',
+			state: 'about'
+		},
+		{
+			name: 'Tutorials',
+			state: 'tutorials'
+		},
+		{
+			name: 'Contact',
+			state: 'contact'
+		},
+	];
+	this.activeClass = 'navigation-link--active';
+	this.class = 'navigation-link';
 })
