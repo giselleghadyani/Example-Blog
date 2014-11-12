@@ -16,4 +16,8 @@ angular.module('blogApp', ['ui.router'])
 		url: '/about',
 		templateUrl: 'about.html',
 	});
-});
+})
+
+.controller('navs', function(){
+	
+})
