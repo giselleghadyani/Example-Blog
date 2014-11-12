@@ -9,9 +9,12 @@
 	<title>Blog</title>
 	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet'>
 	<link rel="stylesheet" href="flexboxgrid.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="angular-material.min.css">
 	<base href="/">
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.11/angular-ui-router.min.js"></script>
+	<script src="angular-material.min.js"></script>
 	<script src="app.js"></script>
 </head>
 <body data-ng-app="blogApp">
@@ -26,11 +29,11 @@
 	</header>
 	<div class="row">
 		<div class="col-xs">
-			<nav class="navigation">
-				<a data-ui-sref-active="active" data-ui-sref="blog" class="navigation-link">
+			<nav class="navigation" data-ng-controller="navs">
+				<a data-ui-sref-active="navigation-link--active" data-ui-sref="blog" class="navigation-link">
 					Home
 				</a>
-				<a data-ui-sref-active="active" data-ui-sref="about" class="navigation-link">
+				<a data-ui-sref-active="navigation-link--active" data-ui-sref="about" class="navigation-link">
 					About
 				</a>
 				<a href="#none" class="navigation-link">

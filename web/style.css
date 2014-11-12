@@ -47,9 +47,8 @@ a {
 	color: #fdf5e6;
 }
 
-.row {
+/*.row {
 	margin-bottom: 20px;
-	/*overflow: hidden;*/
 }
 
 .row:after {
@@ -60,9 +59,9 @@ a {
 .row:after {
   display: table;
   content: " ";
-}
+}*/
 
-[class^="col-"] {
+/*[class^="col-"] {
 	float: left;
 	padding: 0 2%;
 	position: relative;
@@ -83,7 +82,7 @@ a {
 
 .col-4of4 {
 	width: 100%;
-}
+}*/
 
 /* Blog posts */
 
