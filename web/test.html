@@ -56,7 +56,7 @@
 	</section>
 </div>
 
-<div ng-controller="sideNav" layout="vertical">
+<!-- <div ng-controller="sideNav" layout="vertical">
 	<section layout="horizontal" flex>
 		<md-sidenav class="md-sidenav-left md-whiteframe-z2" component-id="left" is-locked-open="$media('md')">
 			<md-toolbar class="md-theme-red">
@@ -71,24 +71,57 @@
 				</p>
 			</md-content>
 		</md-sidenav>
-		<div layout="horizontal" layout-align"start start">
-			<md-button ng-click="toggleLeft()" class="md-primary" hide-md>
-				Sidenav
-			</md-button>
-		</div>
 		<md-content flex class="md-padding">
 			<div layout="vertical" layout-fill layout-align="center center">
 				<p>
 					The left sidenav will 'lock open' on a medium (>960px wide) device.
 				</p>
+				<div layout="horizontal" layout-align"center center">
+					<md-button ng-click="toggleLeft()" class="md-primary" hide-md>
+						Sidenav
+					</md-button>
+				</div>
 			</div>
 		</md-content>
-
 	</section>
 </div>
+ -->
 
-<md-toolbar md-theme="green">
-	<div class="md-toolbar-tools" ng-click="toggle">
-		<md-button hide-md>X</md-button>
+<!-- Toolbar with sidenav functionality -->
+
+
+<div ng-controller="sideNav" layout="vertical" flex>
+	<md-sidenav class="md-sidenav-left md-whiteframe-z2" component-id="left" is-locked-open="$media('md')">
+		<md-toolbar md-theme="green">
+			<div class="md-toolbar-tools" flex>
+				<h1>Sidenav</h1>
+				<md-button ng-click="close()" class="md-primary" layout-align="end start" hide-md>
+					X
+				</md-button>
+			</div>
+		</md-toolbar>
+		<md-content class="md-padding" ng-controller="sideNav">
+			<p hide show-md>
+				Sidenav Text
+			</p>
+		</md-content>
+	</md-sidenav>
+	
+	<div role="main" layout="vertical">
+		<md-toolbar md-theme="green">
+			<div class="md-toolbar-tools">
+				<md-button ng-click="toggleLeft()" class="md-primary" hide-md>X</md-button>
+			</div>
+		</md-toolbar>
+		<md-content>
+			<ul>
+				<li>TEST</li>
+				<li>TEST</li>
+				<li>TEST</li>
+				<li>TEST</li>
+				<li>TEST</li>
+				<li>TEST</li>
+			</ul>
+		</md-content>
 	</div>
-</md-toolbar>
+</div>
