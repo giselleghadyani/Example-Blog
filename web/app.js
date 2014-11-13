@@ -58,3 +58,17 @@ angular.module('blogApp', ['ui.router', 'ngMaterial'])
 	this.class = 'navigation-link';
 })
 
+// Material testing
+
+.controller('buttonCtrl', function($scope) {
+	$scope.title1 = 'Button';
+})
+
+.controller('sideNav', function($scope, $timeout, $mdSidenav) {
+	$scope.toggleLeft =function() {
+		$mdSidenav('left').toggle();
+	};
+	$scope.close = function () {
+		$mdSidenav('left').close();
+	};
+})

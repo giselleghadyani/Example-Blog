@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="/css/test.css">
 <link rel="stylesheet" href="/css/themes/indigo-theme.css">
 <link rel="stylesheet" href="/css/themes/green-theme.css">
+<link rel="stylesheet" href="/css/themes/red-theme.css">
 
 <div layout="horizontal" layout-align="end start">
 	<div class="boxSmall red"></div>
@@ -39,9 +40,55 @@
 
 <!-- Themes Practice -->
 
-<section layout="vertical" layout-sm="horizontal" layout-align="center center">
-	<md-button class="md-raised md-primary" md-theme="indigo">Button 1</md-button>
-	<md-button class="md-raised" aria-label="Time">Button 2</md-button>
-	<md-button class="md-primary md-default-theme">Button 3</md-button>
-</section>
+<div ng-app="blogApp" ng-controller="buttonCtrl" layout="vertical">
+	<md-toolbar md-theme="red">
+		
+	</md-toolbar>
+	<md-content md-theme="red"></md-content>
+	<md-button>Hello</md-button>
+</div>
 
+<div ng-controller='buttonCtrl'>
+	<section layout="vertical" layout-sm="horizontal" layout-align="center center">
+		<md-button class="md-raised md-primary" md-theme="indigo">Button 1</md-button>
+		<md-button class="md-raised">Button 2</md-button>
+		<md-button class="md-primary md-theme-default">Button 3</md-button>
+	</section>
+</div>
+
+<div ng-controller="sideNav" layout="vertical">
+	<section layout="horizontal" flex>
+		<md-sidenav class="md-sidenav-left md-whiteframe-z2" component-id="left" is-locked-open="$media('md')">
+			<md-toolbar class="md-theme-red">
+				<h1 class="md-toolbar-tools">Sidenav Left</h1>
+			</md-toolbar>
+			<md-content class="md-padding" ng-controller="sideNav">
+				<md-button ng-click="close()" class="md-primary" hide-md>
+				Close Sidenav
+				</md-button>
+				<p hide show-md>
+					This sidenav si locked open on your device. To go back to the default behavior, narrow your display.
+				</p>
+			</md-content>
+		</md-sidenav>
+		<div layout="horizontal" layout-align"start start">
+			<md-button ng-click="toggleLeft()" class="md-primary" hide-md>
+				Sidenav
+			</md-button>
+		</div>
+		<md-content flex class="md-padding">
+			<div layout="vertical" layout-fill layout-align="center center">
+				<p>
+					The left sidenav will 'lock open' on a medium (>960px wide) device.
+				</p>
+			</div>
+		</md-content>
+
+	</section>
+</div>
+
+<md-toolbar md-theme="green">
+	<div class="md-toolbar-tools" ng-click="toggle">
+		<md-button hide-md>X</md-button>
+	</div>
+</md-toolbar>
