@@ -1,17 +1,17 @@
 'use strict';
 
 
-angular.module('blogApp', ['ui.router'])
+angular.module('blogApp', ['ui.router', 'ngMaterial'])
 
 .config(function($locationProvider, $stateProvider, $urlRouterProvider) {
 	$locationProvider.html5Mode(true).hashPrefix('!');
 	$urlRouterProvider.otherwise('/404');
 	$stateProvider.state('blog', {
 		url: '/',
-		templateUrl: 'blog.html'
+		templateUrl: 'blog.html',
 	}).state('404', {
 		url: '/404',
-		templateUrl: '404.html'
+		templateUrl: '404.html',
 	}).state('about', {
 		url: '/about',
 		templateUrl: 'about.html',
@@ -57,3 +57,4 @@ angular.module('blogApp', ['ui.router'])
 	this.activeClass = 'navigation-link--active';
 	this.class = 'navigation-link';
 })
+
