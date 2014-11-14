@@ -1,7 +1,26 @@
 <link rel="stylesheet" href="/css/test.css">
-<link rel="stylesheet" href="/css/themes/indigo-theme.css">
+<link rel="stylesheet" href="/css/themes/amber-theme.css">
+<link rel="stylesheet" href="/css/themes/blue-grey-theme.css">
+<link rel="stylesheet" href="/css/themes/blue-theme.css">
+<link rel="stylesheet" href="/css/themes/brown-theme.css">
+<link rel="stylesheet" href="/css/themes/cyan-theme.css">
+<link rel="stylesheet" href="/css/themes/deep-orange-theme.css">
+<link rel="stylesheet" href="/css/themes/deep-purple-theme.css">
+<link rel="stylesheet" href="/css/themes/default-theme.css">
 <link rel="stylesheet" href="/css/themes/green-theme.css">
+<link rel="stylesheet" href="/css/themes/grey-theme.css">
+<link rel="stylesheet" href="/css/themes/indigo-theme.css">
+<link rel="stylesheet" href="/css/themes/light-blue-dark-theme.css">
+<link rel="stylesheet" href="/css/themes/light-green-theme.css">
+<link rel="stylesheet" href="/css/themes/lime-theme.css">
+<link rel="stylesheet" href="/css/themes/orange-theme.css">
+<link rel="stylesheet" href="/css/themes/pink-theme.css">
+<link rel="stylesheet" href="/css/themes/purple-theme.css">
 <link rel="stylesheet" href="/css/themes/red-theme.css">
+<link rel="stylesheet" href="/css/themes/teal-theme.css">
+<link rel="stylesheet" href="/css/themes/yellow-theme.css">
+
+
 
 <div layout="horizontal" layout-align="end start">
 	<div class="boxSmall red"></div>
@@ -50,63 +69,39 @@
 
 <div ng-controller='buttonCtrl'>
 	<section layout="vertical" layout-sm="horizontal" layout-align="center center">
-		<md-button class="md-raised md-primary" md-theme="indigo">Button 1</md-button>
-		<md-button class="md-raised">Button 2</md-button>
-		<md-button class="md-primary md-theme-default">Button 3</md-button>
+		<md-button class="md-raised md-primary md-button" md-theme="red">Button 1</md-button>
+		<md-button class="md-raised md-primary" md-theme="amber">Button 2</md-button>
+		<md-button class="md-primary" md-theme="purple">Button 3</md-button>
 	</section>
 </div>
-
-<!-- <div ng-controller="sideNav" layout="vertical">
-	<section layout="horizontal" flex>
-		<md-sidenav class="md-sidenav-left md-whiteframe-z2" component-id="left" is-locked-open="$media('md')">
-			<md-toolbar class="md-theme-red">
-				<h1 class="md-toolbar-tools">Sidenav Left</h1>
-			</md-toolbar>
-			<md-content class="md-padding" ng-controller="sideNav">
-				<md-button ng-click="close()" class="md-primary" hide-md>
-				Close Sidenav
-				</md-button>
-				<p hide show-md>
-					This sidenav si locked open on your device. To go back to the default behavior, narrow your display.
-				</p>
-			</md-content>
-		</md-sidenav>
-		<md-content flex class="md-padding">
-			<div layout="vertical" layout-fill layout-align="center center">
-				<p>
-					The left sidenav will 'lock open' on a medium (>960px wide) device.
-				</p>
-				<div layout="horizontal" layout-align"center center">
-					<md-button ng-click="toggleLeft()" class="md-primary" hide-md>
-						Sidenav
-					</md-button>
-				</div>
-			</div>
-		</md-content>
-	</section>
-</div>
- -->
 
 <!-- Toolbar with sidenav functionality -->
 
 
-<div ng-controller="sideNav" layout="vertical" flex>
+<div data-ng-controller="navs" layout="vertical" flex>
 	<md-sidenav class="md-sidenav-left md-whiteframe-z2" component-id="left" is-locked-open="$media('md')">
-		<md-toolbar md-theme="green">
-			<div class="md-toolbar-tools" flex>
+		<md-toolbar md-theme="green" flex>
+			<div class="md-toolbar-tools">
 				<h1>Sidenav</h1>
 				<md-button ng-click="close()" class="md-primary" layout-align="end start" hide-md>
 					X
 				</md-button>
 			</div>
 		</md-toolbar>
-		<md-content class="md-padding" ng-controller="sideNav">
+		<md-content class="md-padding">
 			<p hide show-md>
-				Sidenav Text
+				Sidenav Text when locked open
 			</p>
+			<p>
+				Hello
+			</p>
+			<nav layout="vertical" layout-sm="horizontal" layout-align="center center">
+				<a data-ui-sref-active="{{siteNav.activeClass}}" data-ui-sref="{{link.state}}" class="{{siteNav.class}}" data-ng-repeat="link in siteNav.pages">
+						{{link.name}}
+				</a>
+			</nav>
 		</md-content>
 	</md-sidenav>
-	
 	<div role="main" layout="vertical">
 		<md-toolbar md-theme="green">
 			<div class="md-toolbar-tools">
