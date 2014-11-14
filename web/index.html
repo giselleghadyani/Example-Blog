@@ -12,6 +12,8 @@
 	<link rel="stylesheet" href="/css/flexboxgrid.css">
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/angular-material.min.css">
+	<link rel="stylesheet" href="/css/themes/red-theme.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<base href="/">
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-aria.min.js"></script>
@@ -33,12 +35,46 @@
 	</header>
 	<div class="row">
 		<div class="col-xs">
-			<nav class="navigation" data-ng-controller="navs">
-				<a data-ui-sref-active="{{siteNav.activeClass}}" data-ui-sref="{{link.state}}" class="{{siteNav.class}}" data-ng-repeat="link in siteNav.pages">
-					{{link.name}}
-				</a>
-				
-			</nav>
+			<div data-ng-controller="navs" layout="vertical" flex>
+				<md-sidenav class="md-sidenav-left md-whiteframe-z2" component-id="left" is-locked-open="$media('md')">
+					<md-toolbar md-theme="red" flex>
+						<div class="md-toolbar-tools">
+							<h1>Sidenav</h1>
+							<md-button ng-click="close()" layout-align="end start" hide-md>
+								X
+							</md-button>
+						</div>
+					</md-toolbar>
+					<md-content class="md-padding">
+						<p hide show-md>Sidenav Text when locked open</p>
+						<p>Hello</p>
+						<nav class="navigation" layout="vertical">
+							<a data-ui-sref-active="{{siteNav.activeClass}}" data-ui-sref="{{link.state}}" class="{{siteNav.class}}" data-ng-repeat="link in siteNav.pages" flex>
+								{{link.name}}
+							</a>
+						</nav>
+					</md-content>
+				</md-sidenav>
+				<div role="main" layout="vertical">
+					<md-toolbar md-theme="red">
+						<div class="md-toolbar-tools">
+							<md-button ng-click="toggleLeft()" hide-md>
+								
+							</md-button>
+						</div>
+					</md-toolbar>
+					<md-content>
+						<ul>
+							<li>TEST</li>
+							<li>TEST</li>
+							<li>TEST</li>
+							<li>TEST</li>
+							<li>TEST</li>
+							<li>TEST</li>
+						</ul>
+					</md-content>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- Body Text -->
