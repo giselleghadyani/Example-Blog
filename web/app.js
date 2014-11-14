@@ -27,8 +27,14 @@ angular.module('blogApp', ['ui.router', 'ngMaterial'])
 	});
 })
 
-.controller('navs', function($scope, siteNav) {
+.controller('navs', function($scope, $mdSidenav, siteNav) {
 	$scope.siteNav = siteNav;
+	$scope.toggleLeft = function() {
+		$mdSidenav('left').toggle();
+	};
+	$scope.close = function () {
+		$mdSidenav('left').close();
+	};
 })
 
 .service('siteNav', function() {
@@ -62,13 +68,4 @@ angular.module('blogApp', ['ui.router', 'ngMaterial'])
 
 .controller('buttonCtrl', function($scope) {
 	$scope.title1 = 'Button';
-})
-
-.controller('sideNav', function($scope, $timeout, $mdSidenav) {
-	$scope.toggleLeft =function() {
-		$mdSidenav('left').toggle();
-	};
-	$scope.close = function () {
-		$mdSidenav('left').close();
-	};
 })
