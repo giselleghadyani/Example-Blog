@@ -22,6 +22,14 @@ a {
 
 /* Navigation Bar */
 
+md-sidenav {
+	position: fixed !important;
+}
+
+md-backdrop {
+	position: fixed !important; 
+}
+
 .navigation {
 	margin: auto;
 	text-align: center;
