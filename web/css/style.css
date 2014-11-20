@@ -61,21 +61,21 @@ md-backdrop {
 .post {
 	border: 2px dashed #ffb6c1;
 	border-radius: 5px;
-	float: left;
+/*	float: left;*/
 	height: 100%;
-	padding: 0px 20px 20px;
+/*	padding: 0px 20px 20px;*/
 	width: 100%;
 }
 
 .post-heading {
 	color: #f08080;
-	font-family: "Big John", Roboto, Verdana, sans-serif;
+	font-family: Roboto, Verdana, sans-serif;
 	font-size: 36px;
-	font-weight: bold;
+/*	font-weight: bold;*/
 }
 
 .post-description {
-	font-family: "Slim Joe", Roboto, "Times New Roman", serif;
+	font-family:Roboto, "Times New Roman", serif;
 	font-size: 14px;
 }
 
@@ -83,7 +83,7 @@ md-backdrop {
 
 .sidebar-heading {
 	color: #cd853f;
-	font-family: "Big John", Verdana, sans-serif;
+	font-family:Roboto, Verdana, sans-serif;
 	font-size: 24px;
 }
 
