@@ -78,52 +78,7 @@
 	</section>
 </div>
 
-<!-- Toolbar with sidenav functionality -->
-
-
-<div data-ng-controller="navs">
-	<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" is-locked-open="$media('md')">
-		<md-toolbar md-theme="red">
-			<div class="md-toolbar-tools">
-				<h1>Sidenav</h1>
-				<md-button ng-click="close()" layout-align="end start" hide-md>
-					X
-				</md-button>
-			</div>
-		</md-toolbar>
-		<md-content class="md-padding">
-			<p hide show-md>Sidenav Text when locked open</p>
-			<p>Hello</p>
-			<nav class="navigation" layout="column">
-				<a data-ui-sref-active="{{siteNav.activeClass}}" data-ui-sref="{{link.state}}" class="{{siteNav.class}}" data-ng-repeat="link in siteNav.pages" flex>
-						{{link.name}}
-				</a>
-			</nav>
-		</md-content>
-	</md-sidenav>
-	<div role="main" layout="column">
-		<md-toolbar md-theme="red">
-			<div class="md-toolbar-tools">
-				<md-button ng-click="toggleLeft()" class="md-raised md-primary" hide-md>X</md-button>
-			</div>
-		</md-toolbar>
-		<md-content>
-			<ul>
-				<li>TEST</li>
-				<li>TEST</li>
-				<li>TEST</li>
-				<li>TEST</li>
-				<li>TEST</li>
-				<li>TEST</li>
-			</ul>
-		</md-content>
-	</div>
-</div>
-
 <!-- Progress bar testing -->
-
-
-
 
 <div layout-padding style="padding:25px;">
 	<h4>Indeterminate</h4>
@@ -137,3 +92,6 @@
 	<div layout="row" layout-sm="column" layout-align="space-around">
 	<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 </div>
+
+<!-- Directive testing -->
+
