@@ -27,11 +27,12 @@ angular.module('blogApp', ['ui.router', 'ngMaterial'])
 	});
 })
 
-.controller('navs', function($scope, $mdSidenav, siteNavService) {
+.controller('navs', function($scope, $mdSidenav, siteNavService, sidebarNavService) {
 	$scope.siteNav = siteNavService;
 	$scope.toggleLeft = function() {
 		$mdSidenav('left').toggle();
 	};
+	$scope.sidebarNav = sidebarNavService;
 	$scope.toggleRight = function () {
 		$mdSidenav('right').toggle();
 	};
@@ -81,4 +82,35 @@ angular.module('blogApp', ['ui.router', 'ngMaterial'])
 	return {
 		templateUrl: 'site-nav.html'
 	};
-});
+})
+
+// Directive testing for Sidenav R
+
+.directive('sidebarNav', function() {
+	return {
+		templateUrl: 'sidebar-nav.html'
+	};
+})
+
+.service('sidebarNavService', function() {
+	this.pages = [
+		{
+			name: 'Link 1',
+			state: 'link1'
+		},
+		{
+			name: 'Link 2',
+			state: ''
+		},
+		{
+			name: 'Link 3',
+			state: ''
+		},
+		{
+			name: 'Link 4',
+			state: ''
+		}
+	];
+	this.activeClass = 'navigation-link--active';
+	this.class = 'navigation-link';
+})
