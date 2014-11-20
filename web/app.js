@@ -69,3 +69,5 @@ angular.module('blogApp', ['ui.router', 'ngMaterial'])
 .controller('buttonCtrl', function($scope) {
 	$scope.title1 = 'Button';
 })
+
+

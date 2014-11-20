@@ -36,3 +36,9 @@
 md-sidenav {
 	position: fixed;
 }
+
+md-backdrop {
+	position: fixed !important; 
+}
+
+

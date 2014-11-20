@@ -22,11 +22,11 @@
 
 
 
-<div layout="horizontal" layout-align="end start">
+<div layout="row" layout-align="end start">
 	<div class="boxSmall red"></div>
 	<div class="boxSmall red"></div>
 </div>
-<div layout="vertical" layout-sm="horizontal" layout-padding>
+<div layout="row" layout-phone="column" layout-padding>
 	<div flex layout-order-sm="3">
 		<div class="box red"></div>
 	</div>
@@ -37,7 +37,7 @@
 		<div class="box yellow"></div>
 	</div>
 </div>
-<div layout="vertical" layout-sm="horizontal" layout-padding>
+<div layout="row" layout-phone="column" layout-padding>
 	<div flex>
 		<div class="box green"></div>
 	</div>
@@ -45,7 +45,7 @@
 		<div class="box blue"></div>
 	</div>
 </div>
-<div layout="vertical" layout-sm="horizontal" layout-padding>
+<div layout="row" layout-phone="column" layout-padding>
 	<div flex>
 		<div class="box purple"></div>
 	</div>
@@ -59,7 +59,7 @@
 
 <!-- Themes Practice -->
 
-<div ng-app="blogApp" ng-controller="buttonCtrl" layout="vertical">
+<div ng-app="blogApp" ng-controller="buttonCtrl" layout="column">
 	<md-toolbar md-theme="red">
 		
 	</md-toolbar>
@@ -67,9 +67,12 @@
 	<md-button>Hello</md-button>
 </div>
 
+<!-- Buttons Practice -->
+
+
 <div ng-controller='buttonCtrl'>
-	<section layout="vertical" layout-sm="horizontal" layout-align="center center">
-		<md-button class="md-raised md-primary md-button" md-theme="red">Button 1</md-button>
+	<section layout="row" layout-phone="column" layout-align="center center">
+		<md-button class="md-raised md-primary" md-theme="red">Button 1</md-button>
 		<md-button class="md-raised md-primary" md-theme="amber">Button 2</md-button>
 		<md-button class="md-primary" md-theme="purple">Button 3</md-button>
 	</section>
@@ -78,34 +81,30 @@
 <!-- Toolbar with sidenav functionality -->
 
 
-<div data-ng-controller="navs" layout="vertical" flex>
-	<md-sidenav class="md-sidenav-left md-whiteframe-z2" component-id="left" is-locked-open="$media('md')">
-		<md-toolbar md-theme="red" flex>
+<div data-ng-controller="navs">
+	<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" is-locked-open="$media('md')">
+		<md-toolbar md-theme="red">
 			<div class="md-toolbar-tools">
 				<h1>Sidenav</h1>
-				<md-button ng-click="close()" class="md-primary" layout-align="end start" hide-md>
+				<md-button ng-click="close()" layout-align="end start" hide-md>
 					X
 				</md-button>
 			</div>
 		</md-toolbar>
 		<md-content class="md-padding">
-			<p hide show-md>
-				Sidenav Text when locked open
-			</p>
-			<p>
-				Hello
-			</p>
-			<nav class="navigation" layout="vertical">
+			<p hide show-md>Sidenav Text when locked open</p>
+			<p>Hello</p>
+			<nav class="navigation" layout="column">
 				<a data-ui-sref-active="{{siteNav.activeClass}}" data-ui-sref="{{link.state}}" class="{{siteNav.class}}" data-ng-repeat="link in siteNav.pages" flex>
 						{{link.name}}
 				</a>
 			</nav>
 		</md-content>
 	</md-sidenav>
-	<div role="main" layout="vertical">
+	<div role="main" layout="column">
 		<md-toolbar md-theme="red">
 			<div class="md-toolbar-tools">
-				<md-button ng-click="toggleLeft()" class="md-primary" hide-md>X</md-button>
+				<md-button ng-click="toggleLeft()" class="md-raised md-primary" hide-md>X</md-button>
 			</div>
 		</md-toolbar>
 		<md-content>
@@ -119,4 +118,22 @@
 			</ul>
 		</md-content>
 	</div>
+</div>
+
+<!-- Progress bar testing -->
+
+
+
+
+<div layout-padding style="padding:25px;">
+	<h4>Indeterminate</h4>
+	<p>For operations where the user is asked to wait a moment while something finishes up, and it’s not necessary to expose what's happening behind the scenes and how long it will take, use an indeterminate indicator.</p>
+	<md-progress-linear md-mode="indeterminate"></md-progress-linear>
+</div>
+
+<div>
+	<h4>Indeterminate</h4>
+	<p>For operations where the user is asked to wait a moment while something finishes up, and it’s not necessary to expose what's happening behind the scenes and how long it will take, use an indeterminate indicator.</p>
+	<div layout="row" layout-sm="column" layout-align="space-around">
+	<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 </div>
