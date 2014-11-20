@@ -57,36 +57,32 @@
 						</div>
 					</md-toolbar>
 					<md-content>
-						<ul>
-							<li>TEST</li>
-							<li>TEST</li>
-							<li>TEST</li>
-							<li>TEST</li>
-							<li>TEST</li>
-							<li>TEST</li>
-						</ul>
+						<main layout="row">
+							<!-- Body Text -->
+							<div>
+								<div ui-view=""></div>
+							</div>
+							<!-- Side bar(s) -->
+							<div>
+								<h2 class="sidebar-heading">SIDEBAR HEADING</h2>
+								<ul>
+									<li>Link 1</li>
+									<li>Link 2</li>
+									<li>Link 3</li>
+									<li>Link 4</li>
+								</ul>
+							</div>
+						</main>
+						<!-- Footer -->
+						<footer>
+							<div class="site-footer">
+								<p>Footer text</p>
+							</div>
+						</footer>
 					</md-content>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Body Text -->
-	<main class="row">
-		<div class="col-xs-12 col-sm-8">
-			<div ui-view=""></div>
-		</div>
-		<!-- Side bar(s) -->
-		<div class="col-xs-12 col-sm-4">
-			<h2 class="sidebar-heading">HEADING</h2>
-			<p class="sidebar-description">List of links</p>
-		</div>
-	</main>
-	<footer class="row">
-		<div class="col-xs">
-			<div class="site-footer">
-				<p>Footer text</p>
-			</div>
-		</div>
-	</footer>
 </body>
 </html>
