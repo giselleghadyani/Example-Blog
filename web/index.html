@@ -24,64 +24,57 @@
 </head>
 <body data-ng-app="blogApp">
 	<!-- Here will be a picture above the navigation bar -->
-	<header class="row">
-		<div class="col-xs">
-			<div>
+	<header>
+		<div flex>
 				<a href="/"><img class="img-responsive" src="http://placehold.it/800x300"></a>
-			</div>
-			<!-- Navigation bar -->
 		</div>
 	</header>
-	<div class="row">
-		<div class="col-xs">
-			<div data-ng-controller="navs">
-				<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" is-locked-open="$media('md')">
-					<md-toolbar md-theme="red">
-						<div class="md-toolbar-tools">
-							<h1>Sidenav</h1>
-							<md-button ng-click="close()" layout-align="end start" hide-md>
-								X
-							</md-button>
-						</div>
-					</md-toolbar>
-					<md-content class="md-padding">
-						<p hide show-md>Sidenav Text when locked open</p>
-						<p>Hello</p>
-						<site-nav siteNav="siteNav" ng-controller="navs"></site-nav>
-					</md-content>
-				</md-sidenav>
-				<div role="main" layout="column">
-					<md-toolbar md-theme="red">
-						<div class="md-toolbar-tools">
-							<md-button ng-click="toggleLeft()" hide-md>X</md-button>
-						</div>
-					</md-toolbar>
-					<md-content>
-						<main layout="row">
-							<!-- Body Text -->
-							<div flex>
-								<div ui-view=""></div>
-							</div>
-							<!-- Side bar(s) -->
-							<div hide-phone>
-								<h2 class="sidebar-heading">SIDEBAR HEADING</h2>
-								<ul>
-									<li>Link 1</li>
-									<li>Link 2</li>
-									<li>Link 3</li>
-									<li>Link 4</li>
-								</ul>
-							</div>
-						</main>
-						<!-- Footer -->
-						<footer>
-							<div class="site-footer">
-								<p>Footer text</p>
-							</div>
-						</footer>
-					</md-content>
+	<div data-ng-controller="navs">
+		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" is-locked-open="$media('md')">
+			<md-toolbar md-theme="red">
+				<div class="md-toolbar-tools">
+					<h1>Sidenav</h1>
+					<md-button ng-click="close()" layout-align="end start" hide-md>
+						X
+					</md-button>
 				</div>
-			</div>
+			</md-toolbar>
+			<md-content class="md-padding">
+				<p hide show-md>Sidenav Text when locked open</p>
+				<p>Hello</p>
+				<site-nav siteNav="siteNav" ng-controller="navs"></site-nav>
+			</md-content>
+		</md-sidenav>
+		<div role="main" layout="column">
+			<md-toolbar md-theme="red">
+				<div class="md-toolbar-tools">
+					<md-button ng-click="toggleLeft()" hide-md>X</md-button>
+				</div>
+			</md-toolbar>
+			<md-content>
+				<main layout="row">
+					<!-- Body Text -->
+					<div flex>
+						<div ui-view=""></div>
+					</div>
+					<!-- Side bar(s) -->
+					<div hide-phone>
+						<h2 class="sidebar-heading">SIDEBAR HEADING</h2>
+						<ul>
+							<li>Link 1</li>
+							<li>Link 2</li>
+							<li>Link 3</li>
+							<li>Link 4</li>
+						</ul>
+					</div>
+				</main>
+				<!-- Footer -->
+				<footer>
+					<div class="site-footer">
+						<p>Footer text</p>
+					</div>
+				</footer>
+			</md-content>
 		</div>
 	</div>
 </body>
