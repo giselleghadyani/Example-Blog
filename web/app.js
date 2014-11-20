@@ -32,8 +32,12 @@ angular.module('blogApp', ['ui.router', 'ngMaterial'])
 	$scope.toggleLeft = function() {
 		$mdSidenav('left').toggle();
 	};
+	$scope.toggleRight = function () {
+		$mdSidenav('right').toggle();
+	};
 	$scope.close = function () {
 		$mdSidenav('left').close();
+		$mdSidenav('right').close();
 	};
 })
 
