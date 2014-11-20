@@ -27,8 +27,8 @@ angular.module('blogApp', ['ui.router', 'ngMaterial'])
 	});
 })
 
-.controller('navs', function($scope, $mdSidenav, siteNav) {
-	$scope.siteNav = siteNav;
+.controller('navs', function($scope, $mdSidenav, siteNavService) {
+	$scope.siteNav = siteNavService;
 	$scope.toggleLeft = function() {
 		$mdSidenav('left').toggle();
 	};
@@ -37,7 +37,7 @@ angular.module('blogApp', ['ui.router', 'ngMaterial'])
 	};
 })
 
-.service('siteNav', function() {
+.service('siteNavService', function() {
 	this.pages = [
 		{
 			name:'Home',
@@ -71,3 +71,10 @@ angular.module('blogApp', ['ui.router', 'ngMaterial'])
 })
 
 
+// Directive testing for nav
+
+.directive('siteNav', function() {
+	return {
+		templateUrl: 'site-nav.html'
+	};
+});
