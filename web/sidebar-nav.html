@@ -1,4 +1,4 @@
-<nav class="navigation" ng-click="close()" layout="column">
+<nav class="navigation" ng-click="sideNav.close('right')" layout="column">
 	<a data-ui-sref-active="{{sidebarNav.activeClass}}" data-ui-sref="{{link.state}}" class="{{sidebarNav.class}}" data-ng-repeat="link in sidebarNav.pages" flex>
 		{{link.name}}
 	</a>

@@ -1,5 +1,5 @@
-<nav class="navigation" ng-click="close()" layout="column">
-	<a data-ui-sref-active="{{siteNav.activeClass}}" data-ui-sref="{{link.state}}" class="{{siteNav.class}}" data-ng-repeat="link in siteNav.pages" flex>
+<nav class="navigation" ng-click="sideNav.close('left')" layout="column">
+	<a data-ui-sref-active="{{siteNav.activeClass}}" data-ui-sref="{{link.state}}" class="{{siteNav.class}}" ng-repeat="link in siteNav.pages" flex>
 		{{link.name}}
 	</a>
 </nav>

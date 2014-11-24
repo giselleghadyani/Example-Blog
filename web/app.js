@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('blogApp', ['ui.router', 'ngMaterial'])
+angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 
 .config(function($locationProvider, $stateProvider, $urlRouterProvider) {
 	$locationProvider.html5Mode(true).hashPrefix('!');
@@ -29,16 +29,13 @@ angular.module('blogApp', ['ui.router', 'ngMaterial'])
 
 .controller('navs', function($scope, $mdSidenav, siteNavService, sidebarNavService) {
 	$scope.siteNav = siteNavService;
-	$scope.toggleLeft = function() {
-		$mdSidenav('left').toggle();
-	};
 	$scope.sidebarNav = sidebarNavService;
-	$scope.toggleRight = function () {
-		$mdSidenav('right').toggle();
+	$scope.sideNav = {};
+	$scope.sideNav.toggle = function(componentId) {
+		$mdSidenav(componentId).toggle();
 	};
-	$scope.close = function () {
-		$mdSidenav('left').close();
-		$mdSidenav('right').close();
+	$scope.sideNav.close = function(componentId) {
+		$mdSidenav(componentId).close();
 	};
 })
 
@@ -80,7 +77,8 @@ angular.module('blogApp', ['ui.router', 'ngMaterial'])
 
 .directive('siteNav', function() {
 	return {
-		templateUrl: 'site-nav.html'
+		templateUrl: 'site-nav.html',
+		replace: true
 	};
 })
 
@@ -88,7 +86,8 @@ angular.module('blogApp', ['ui.router', 'ngMaterial'])
 
 .directive('sidebarNav', function() {
 	return {
-		templateUrl: 'sidebar-nav.html'
+		templateUrl: 'sidebar-nav.html',
+		replace: true
 	};
 })
 
@@ -96,21 +95,35 @@ angular.module('blogApp', ['ui.router', 'ngMaterial'])
 	this.pages = [
 		{
 			name: 'Link 1',
-			state: 'link1'
+			state: 'test'
 		},
 		{
 			name: 'Link 2',
-			state: ''
+			state: 'test'
 		},
 		{
 			name: 'Link 3',
-			state: ''
+			state: 'test'
 		},
 		{
 			name: 'Link 4',
-			state: ''
+			state: 'test'
 		}
 	];
 	this.activeClass = 'navigation-link--active';
 	this.class = 'navigation-link';
+})
+
+// Post template testing
+
+.factory('contentFactory', function($resource) {
+	return $resource('/content/:jsonFilename.json',
+		{jsonFilename: 'blog'},
+		{});
+})
+
+.controller('contentController', function($scope, $state, contentFactory) {
+	contentFactory.get({jsonFilename: $state.current.name}).$promise.then(function(data) {
+		$scope.content = data
+	})
 })
