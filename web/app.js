@@ -12,6 +12,10 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 	}).state('404', {
 		url: '/404',
 		templateUrl: '404.html',
+	}).state('page', {
+		url: '/page/:pageId',
+		templateUrl: 'page.html',
+		controller: 'pageController',
 	}).state('about', {
 		url: '/about',
 		templateUrl: 'about.html',
@@ -31,6 +35,7 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 	$scope.siteNav = siteNavService;
 	$scope.sidebarNav = sidebarNavService;
 	$scope.sideNav = {};
+	
 	$scope.sideNav.toggle = function(componentId) {
 		$mdSidenav(componentId).toggle();
 	};
@@ -39,31 +44,57 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 	};
 })
 
-.service('siteNavService', function() {
+.service('siteNavService', function($stateParams, $state) {
 	this.pages = [
 		{
 			name:'Home',
-			state: 'blog'
+			slug: 'blog',
+			type: 'page',
+			id: 'pageId',
 		},
 		{
 			name: 'About',
-			state: 'about'
+			slug: 'about',
+			type: 'page',
+			id: 'pageId',
 		},
 		{
 			name: 'Tutorials',
-			state: 'tutorials'
+			slug: 'tutorials',
+			type: 'page',
+			id: 'pageId',
 		},
 		{
 			name: 'Contact',
-			state: 'contact'
+			slug: 'contact',
+			type: 'page',
+			id: 'pageId',
 		},
 		{
 			name: 'Test',
-			state: 'test'
+			slug: 'test',
+			type: 'page',
+			id: 'pageId',
 		}
 	];
-	this.activeClass = 'navigation-link--active';
-	this.class = 'navigation-link';
+	// this.activeClass = 'navigation-link--active';
+	// this.class = 'navigation-link';
+	this.getClass = function(id, slug) {
+		var classes = 'navigation-link';
+		
+		if(slug == $stateParams[id]) {
+			classes += ' navigation-link--active'
+		}
+
+		return classes;
+	};
+	this.getLink = function(id, slug, type) {
+		var params = {};
+		
+		params[id] = slug;
+
+		return $state.href(type, params);
+	};
 })
 
 // Material testing
@@ -116,14 +147,35 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 
 // Post template testing
 
-.factory('contentFactory', function($resource) {
-	return $resource('/content/:jsonFilename.json',
-		{jsonFilename: 'blog'},
-		{});
+.service('contentService', function($resource) {
+	this.posts = $resource('//qa-checklist.badmarkup.com/wp-json/posts/:postId',
+		{
+			postId: ''
+		}
+	);
+	this.pages = $resource('//qa-checklist.badmarkup.com/wp-json/pages/:pageId',
+		{
+			pageId: ''
+		},
+		{
+			transformResponse: function(data, headersGetter) {
+				console.log(data);
+				console.log(headersGetter);
+			}
+		}
+	);
 })
 
-.controller('contentController', function($scope, $state, contentFactory) {
-	contentFactory.get({jsonFilename: $state.current.name}).$promise.then(function(data) {
-		$scope.content = data
-	})
+.controller('contentController', function($scope, $state, $sce, contentService) {
+
 })
+
+.controller('pageController', function($scope, $state, $stateParams, $sce, contentService) {
+	contentService.pages.get({pageId: $stateParams.pageId}).$promise.then(function(data) {
+		data.content = $sce.trustAsHtml(data.content);
+		$scope.page = data;
+	}, function() {
+		$state.go('404');
+	});
+})
+
