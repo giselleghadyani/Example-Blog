@@ -45,7 +45,7 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
 	<script src="/app.js"></script>
 </head>
-<body ng-app="blogApp">
+<body ng-app="blogApp" layout="column">
 	<!-- Here will be a picture above the navigation bar -->
 	<header>
 		<div flex>
@@ -54,11 +54,11 @@
 	</header>
 	<div ng-controller="navs">
 		<!-- Sidenav L -->
-		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('lg')">
+		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-md')">
 			<md-toolbar md-theme="red">
 				<div class="md-toolbar-tools">
 					<h1>Sidenav L</h1>
-					<md-button ng-click="sideNav.close('left')" layout-align="end start" hide-pc>
+					<md-button ng-click="sideNav.close('left')" layout-align="end start" hide-gt-md>
 						X
 					</md-button>
 				</div>
@@ -70,17 +70,16 @@
 			</md-content>
 		</md-sidenav>
 		<!-- Sidenav R -->
-		<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" md-is-locked-open="$media('lg')">
+		<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
 			<md-toolbar md-theme="teal">
 				<div class="md-toolbar-tools">
 					<h1>Sidenav R</h1>
-					<md-button ng-click="sideNav.close('right')" layout-align="end start" hide-pc>
+					<md-button ng-click="sideNav.close('right')" layout-align="end start">
 						O
 					</md-button>
 				</div>
 			</md-toolbar>
 			<md-content class="md-padding">
-				<p hide show-pc>Sidenav Text will show when locked open</p>
 				<p>Hola</p>
 				<sidebar-nav sidebarNav="sidebarNav"></sidebar-nav>
 			</md-content>
@@ -89,9 +88,9 @@
 		<div role="main" layout="column">
 			<md-toolbar md-theme="red">
 				<div class="md-toolbar-tools">
-					<md-button ng-click="sideNav.toggle('left')" hide-md>X</md-button>
+					<md-button ng-click="sideNav.toggle('left')" hide-gt-md>X</md-button>
 					<span flex></span>
-					<md-button ng-click="sideNav.toggle('right')" hide-md>O</md-button>
+					<md-button ng-click="sideNav.toggle('right')">O</md-button>
 				</div>
 			</md-toolbar>
 			<md-content class="md-padding">
@@ -101,7 +100,7 @@
 						<div ui-view=""></div>
 					</div>
 					<!-- Side bar(s) -->
-					<div hide-phone>
+					<div hide-sm>
 						<h2 class="sidebar-heading">SIDEBAR HEADING</h2>
 						<ul>
 							<li>Link 1</li>
