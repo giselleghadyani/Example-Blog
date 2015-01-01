@@ -9,6 +9,7 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 	$stateProvider.state('blog', {
 		url: '/',
 		templateUrl: 'blog.html',
+		controller: 'postsController',
 	}).state('404', {
 		url: '/404',
 		templateUrl: '404.html',
@@ -48,9 +49,9 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 	this.pages = [
 		{
 			name:'Home',
-			slug: 'blog',
-			type: 'page',
-			id: 'pageId',
+			slug: '',
+			type: 'blog',
+			id: '',
 		},
 		{
 			name: 'About',
@@ -156,12 +157,12 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 	this.pages = $resource('//qa-checklist.badmarkup.com/wp-json/pages/:pageId',
 		{
 			pageId: ''
-		},
-		{
-			transformResponse: function(data, headersGetter) {
-				console.log(data);
-				console.log(headersGetter);
-			}
+		// },
+		// {
+		// 	transformResponse: function(data, headersGetter) {
+		// 		console.log(data);
+		// 		console.log(headersGetter);
+		// 	}
 		}
 	);
 })
@@ -179,3 +180,13 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 	});
 })
 
+.controller('postsController', function($scope, $state, $stateParams, $sce, contentService) {
+	contentService.posts.query().$promise.then(function(data) {
+		for(var i = 0; i < data.length; i++) {
+			data[i].content = $sce.trustAsHtml(data[i].content);
+		};
+		$scope.posts = data;
+	}, function() {
+		$state.go('404');
+	});
+})
