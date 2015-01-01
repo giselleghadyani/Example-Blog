@@ -32,9 +32,9 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 	});
 })
 
-.controller('navs', function($scope, $mdSidenav, siteNavService, sidebarNavService) {
+.controller('navs', function($scope, $mdSidenav, siteNavService) {
 	$scope.siteNav = siteNavService;
-	$scope.sidebarNav = sidebarNavService;
+	// $scope.sidebarNav = sidebarNavService;
 	$scope.sideNav = {};
 	
 	$scope.sideNav.toggle = function(componentId) {
@@ -114,37 +114,37 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 	};
 })
 
-// Directive testing for Sidenav R
+// // Directive testing for Sidenav R
 
-.directive('sidebarNav', function() {
-	return {
-		templateUrl: 'sidebar-nav.html',
-		replace: true
-	};
-})
+// .directive('sidebarNav', function() {
+// 	return {
+// 		templateUrl: 'sidebar-nav.html',
+// 		replace: true
+// 	};
+// })
 
-.service('sidebarNavService', function() {
-	this.pages = [
-		{
-			name: 'Link 1',
-			state: 'test'
-		},
-		{
-			name: 'Link 2',
-			state: 'test'
-		},
-		{
-			name: 'Link 3',
-			state: 'test'
-		},
-		{
-			name: 'Link 4',
-			state: 'test'
-		}
-	];
-	this.activeClass = 'navigation-link--active';
-	this.class = 'navigation-link';
-})
+// .service('sidebarNavService', function() {
+// 	this.pages = [
+// 		{
+// 			name: 'Link 1',
+// 			state: 'test'
+// 		},
+// 		{
+// 			name: 'Link 2',
+// 			state: 'test'
+// 		},
+// 		{
+// 			name: 'Link 3',
+// 			state: 'test'
+// 		},
+// 		{
+// 			name: 'Link 4',
+// 			state: 'test'
+// 		}
+// 	];
+// 	this.activeClass = 'navigation-link--active';
+// 	this.class = 'navigation-link';
+// })
 
 // Post template testing
 
