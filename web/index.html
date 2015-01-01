@@ -56,10 +56,10 @@
 		<!-- Sidenav L -->
 		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-md')">
 			<md-toolbar md-theme="red">
-				<div class="md-toolbar-tools">
-					<h1>Sidenav L</h1>
+				<div class="md-toolbar-tools" layout="row">
+					<h1 flex>Sidenav L</h1>
 					<md-button ng-click="sideNav.close('left')" layout-align="end start" hide-gt-md>
-						X
+						<i class="fa fa-close"></i>
 					</md-button>
 				</div>
 			</md-toolbar>
@@ -73,7 +73,9 @@
 		<div role="main" layout="column" flex>
 			<md-toolbar md-theme="red">
 				<div class="md-toolbar-tools">
-					<md-button ng-click="sideNav.toggle('left')" hide-gt-md>X</md-button>
+					<md-button ng-click="sideNav.toggle('left')" hide-gt-md>
+						<i class="fa fa-bars"></i>
+					</md-button>
 				</div>
 			</md-toolbar>
 			<md-content class="md-padding main-content" layout="column" flex>
