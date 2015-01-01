@@ -52,7 +52,7 @@
 			<a href="/"><img class="img-responsive" src="http://placehold.it/800x300"></a>
 		</div>
 	</header>
-	<div ng-controller="navs">
+	<div ng-controller="navs" layout="row">
 		<!-- Sidenav L -->
 		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-md')">
 			<md-toolbar md-theme="red">
@@ -69,28 +69,11 @@
 				<site-nav siteNav="siteNav"></site-nav>
 			</md-content>
 		</md-sidenav>
-		<!-- Sidenav R -->
-		<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-			<md-toolbar md-theme="teal">
-				<div class="md-toolbar-tools">
-					<h1>Sidenav R</h1>
-					<md-button ng-click="sideNav.close('right')" layout-align="end start">
-						O
-					</md-button>
-				</div>
-			</md-toolbar>
-			<md-content class="md-padding">
-				<p>Hola</p>
-				<sidebar-nav sidebarNav="sidebarNav"></sidebar-nav>
-			</md-content>
-		</md-sidenav>
 		<!-- Main Body -->
-		<div role="main" layout="column">
+		<div role="main" layout="column" flex>
 			<md-toolbar md-theme="red">
 				<div class="md-toolbar-tools">
 					<md-button ng-click="sideNav.toggle('left')" hide-gt-md>X</md-button>
-					<span flex></span>
-					<md-button ng-click="sideNav.toggle('right')">O</md-button>
 				</div>
 			</md-toolbar>
 			<md-content class="md-padding">
@@ -98,16 +81,6 @@
 					<!-- Body Text -->
 					<div flex>
 						<div ui-view=""></div>
-					</div>
-					<!-- Side bar(s) -->
-					<div hide-sm>
-						<h2 class="sidebar-heading">SIDEBAR HEADING</h2>
-						<ul>
-							<li>Link 1</li>
-							<li>Link 2</li>
-							<li>Link 3</li>
-							<li>Link 4</li>
-						</ul>
 					</div>
 				</main>
 				<!-- Footer -->

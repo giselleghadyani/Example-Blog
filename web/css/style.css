@@ -21,13 +21,13 @@ a {
 
 /* Navigation Bar */
 
-md-sidenav {
+/*md-sidenav {
 	position: fixed !important;
 }
 
 md-backdrop {
 	position: fixed !important; 
-}
+}*/
 
 .navigation {
 	margin: auto;
@@ -61,8 +61,10 @@ md-backdrop {
 	border-radius: 5px;
 /*	float: left;*/
 	height: 100%;
-/*	padding: 0px 20px 20px;*/
+	padding: 0 20px 20px;
 	width: 100%;
+	max-width: 800px;
+	margin: 0 auto 20px;
 }
 
 .post-heading {
