@@ -1,8 +1,4 @@
-<div ng-controller="contentController">
-	<article class="post" layout-padding>
-		<h1 class="post-heading">{{content.pageHeading}}</h1>
-		<p class="post-description" ng-repeat="text in content.pageDescription">
-			{{text}}
-		</p>
-	</article>
-</div>
+<article class="post" ng-repeat="post in posts">
+	<h1 class="post-heading">{{post.title}}</h1>
+	<div class="post-description" ng-bind-html="post.content"></div>
+</article>
