@@ -52,7 +52,7 @@
 			<a href="/"><img class="img-responsive" src="http://placehold.it/800x300"></a>
 		</div>
 	</header>
-	<div ng-controller="navs" layout="row">
+	<div ng-controller="navs" layout="row" flex>
 		<!-- Sidenav L -->
 		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-md')">
 			<md-toolbar md-theme="red">
@@ -76,8 +76,8 @@
 					<md-button ng-click="sideNav.toggle('left')" hide-gt-md>X</md-button>
 				</div>
 			</md-toolbar>
-			<md-content class="md-padding">
-				<main layout="row" layout-padding>
+			<md-content class="md-padding main-content" layout="column" flex>
+				<main layout="row" layout-padding flex>
 					<!-- Body Text -->
 					<div flex>
 						<div ui-view=""></div>
