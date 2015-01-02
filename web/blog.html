@@ -1,6 +1,6 @@
 <md-content class="md-padding">
-	<loading-icon></loading-icon>
 	<article class="post" ng-repeat="post in posts">
+		<loading-icon></loading-icon>
 		<h1 class="post-heading">{{post.title}}</h1>
 		<div class="post-description" ng-bind-html="post.content"></div>
 	</article>
