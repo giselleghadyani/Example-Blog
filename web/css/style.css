@@ -33,6 +33,11 @@ md-backdrop {
 	min-height: 100%;
 }
 
+.full-width,
+.full-width > input {
+	width: 100% !important;
+}
+
 .navigation {
 	margin: auto;
 	text-align: center;
