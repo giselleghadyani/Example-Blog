@@ -5,9 +5,9 @@
 }
 
 body {
-	background-color: #fdf5e6;
 	margin: 0 auto;
 	width: 100%;
+	height: auto;
 }
 
 img {
@@ -28,6 +28,10 @@ a {
 md-backdrop {
 	position: fixed !important; 
 }*/
+
+.full-height {
+	min-height: 100%;
+}
 
 .navigation {
 	margin: auto;
@@ -94,9 +98,10 @@ md-backdrop {
 	background-color: mistyrose;
 	border-radius: 5px;
 	clear: both;
-	color: oldlace;
+	/*color: oldlace;*/
 	font-size: 12px;
-	height: 50px;
+	/*height: 50px;*/
+	padding: 20px;
 	position: relative;
 	text-align: center;	
 }
@@ -107,4 +112,11 @@ md-backdrop {
 
 .main-content {
 	min-height: 100%;
+}
+
+md-sidenav.md-locked-open {
+	height: 100%;
+}
+md-sidenav:not(.md-locked-open) {
+	position: fixed;
 }

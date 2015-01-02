@@ -73,9 +73,9 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 		},
 		{
 			name: 'Test',
-			slug: 'test',
-			type: 'page',
-			id: 'pageId',
+			slug: '',
+			type: 'test',
+			id: '',
 		}
 	];
 	// this.activeClass = 'navigation-link--active';
@@ -109,6 +109,7 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 
 .directive('siteNav', function() {
 	return {
+		restrict: 'E',
 		templateUrl: 'site-nav.html',
 		replace: true
 	};
@@ -172,7 +173,9 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 })
 
 .controller('pageController', function($scope, $state, $stateParams, $sce, contentService) {
+	$scope.loadingComplete = false;
 	contentService.pages.get({pageId: $stateParams.pageId}).$promise.then(function(data) {
+		$scope.loadingComplete = true;
 		data.content = $sce.trustAsHtml(data.content);
 		$scope.page = data;
 	}, function() {
@@ -181,7 +184,9 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 })
 
 .controller('postsController', function($scope, $state, $stateParams, $sce, contentService) {
+	$scope.loadingComplete = false;
 	contentService.posts.query().$promise.then(function(data) {
+		$scope.loadingComplete = true;
 		for(var i = 0; i < data.length; i++) {
 			data[i].content = $sce.trustAsHtml(data[i].content);
 		};
@@ -189,4 +194,12 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 	}, function() {
 		$state.go('404');
 	});
+})
+
+.directive('loadingIcon', function() {
+	return {
+		restrict: 'E',
+		templateUrl: 'loading-icon.html',
+		replace: true
+	};
 })
