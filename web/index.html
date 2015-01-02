@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html>
-
-<!-- My Ever Evolving Blog -->
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,23 +28,21 @@
 	<!-- Here will be a picture above the navigation bar -->
 	<header>
 		<div flex>
-			<a href="/"><img class="img-responsive" src="http://placehold.it/800x300"></a>
+			<a ui-sref="blog" class="header-img"></a>
 		</div>
 	</header>
 	<div class="full-height" ng-controller="navs" layout="row" flex>
-		<!-- Sidenav L -->
+		<!-- Sidenav -->
 		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-md')">
 			<md-toolbar>
 				<div class="md-toolbar-tools" layout="row">
-					<h1 flex>Sidenav L</h1>
+					<h1 flex>Navigation</h1>
 					<md-button ng-click="sideNav.close('left')" layout-align="end start" hide-gt-md>
 						<i class="fa fa-close"></i>
 					</md-button>
 				</div>
 			</md-toolbar>
 			<md-content class="md-padding">
-				<p hide show-pc>Sidenav Text will show when locked open</p>
-				<p>Hello</p>
 				<site-nav siteNav="siteNav"></site-nav>
 			</md-content>
 		</md-sidenav>
@@ -60,7 +55,6 @@
 					</md-button>
 				</div>
 			</md-toolbar>
-			<!-- <md-content class="md-padding main-content" layout="column" flex> -->
 			<div layout="column" flex>
 				<main flex>
 					<!-- Body Text -->
@@ -75,7 +69,6 @@
 					</md-content>
 				</footer>
 			</div>
-			<!-- </md-content> -->
 		</div>
 	</div>
 </body>
