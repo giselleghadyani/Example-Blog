@@ -17,12 +17,6 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 		url: '/page/:pageId',
 		templateUrl: 'page.html',
 		controller: 'pageController',
-	}).state('about', {
-		url: '/about',
-		templateUrl: 'about.html',
-	}).state('tutorials', {
-		url: '/tutorials',
-		templateUrl: 'tutorials.html',
 	}).state('contact', {
 		url: '/contact',
 		templateUrl: 'contact.html',
@@ -34,9 +28,8 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 
 .controller('navs', function($scope, $mdSidenav, siteNavService) {
 	$scope.siteNav = siteNavService;
-	// $scope.sidebarNav = sidebarNavService;
+
 	$scope.sideNav = {};
-	
 	$scope.sideNav.toggle = function(componentId) {
 		$mdSidenav(componentId).toggle();
 	};
@@ -67,9 +60,9 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 		},
 		{
 			name: 'Contact',
-			slug: 'contact',
-			type: 'page',
-			id: 'pageId',
+			slug: '',
+			type: 'contact',
+			id: '',
 		},
 		{
 			name: 'Test',
@@ -78,8 +71,6 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 			id: '',
 		}
 	];
-	// this.activeClass = 'navigation-link--active';
-	// this.class = 'navigation-link';
 	this.getClass = function(id, slug) {
 		var classes = 'navigation-link';
 		
@@ -115,55 +106,13 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 	};
 })
 
-// // Directive testing for Sidenav R
-
-// .directive('sidebarNav', function() {
-// 	return {
-// 		templateUrl: 'sidebar-nav.html',
-// 		replace: true
-// 	};
-// })
-
-// .service('sidebarNavService', function() {
-// 	this.pages = [
-// 		{
-// 			name: 'Link 1',
-// 			state: 'test'
-// 		},
-// 		{
-// 			name: 'Link 2',
-// 			state: 'test'
-// 		},
-// 		{
-// 			name: 'Link 3',
-// 			state: 'test'
-// 		},
-// 		{
-// 			name: 'Link 4',
-// 			state: 'test'
-// 		}
-// 	];
-// 	this.activeClass = 'navigation-link--active';
-// 	this.class = 'navigation-link';
-// })
-
 // Post template testing
 
 .service('contentService', function($resource) {
-	this.posts = $resource('//qa-checklist.badmarkup.com/wp-json/posts/:postId',
+	this.postTypes = $resource('//qa-checklist.badmarkup.com/wp-json/:postType/:postId',
 		{
-			postId: ''
-		}
-	);
-	this.pages = $resource('//qa-checklist.badmarkup.com/wp-json/pages/:pageId',
-		{
-			pageId: ''
-		// },
-		// {
-		// 	transformResponse: function(data, headersGetter) {
-		// 		console.log(data);
-		// 		console.log(headersGetter);
-		// 	}
+			postId: '',
+			postType: '',
 		}
 	);
 })
@@ -174,8 +123,13 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 
 .controller('pageController', function($scope, $state, $stateParams, $sce, contentService) {
 	$scope.loadingComplete = false;
-	contentService.pages.get({pageId: $stateParams.pageId}).$promise.then(function(data) {
+
+	contentService.postTypes.get({
+		postId: $stateParams.pageId,
+		postType: 'pages',
+	}).$promise.then(function(data) {
 		$scope.loadingComplete = true;
+
 		data.content = $sce.trustAsHtml(data.content);
 		$scope.page = data;
 	}, function() {
@@ -185,8 +139,12 @@ angular.module('blogApp', ['ui.router', 'ngMaterial', 'ngResource'])
 
 .controller('postsController', function($scope, $state, $stateParams, $sce, contentService) {
 	$scope.loadingComplete = false;
-	contentService.posts.query().$promise.then(function(data) {
+
+	contentService.postTypes.query({
+		postType: 'posts',
+	}).$promise.then(function(data) {
 		$scope.loadingComplete = true;
+
 		for(var i = 0; i < data.length; i++) {
 			data[i].content = $sce.trustAsHtml(data[i].content);
 		};
