@@ -4,6 +4,7 @@ This project is an example blog using **Angular-Material** (Google Material Desi
 
 Project setup
 ---
+1. Install Node.js
 1. Create host file entry for `lol.blog.com`.
 1. In the root of the project run `npm start`.
 
